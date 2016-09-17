@@ -1,0 +1,31 @@
+import re
+import urllib.request
+
+def First():
+    url = 'http://pobeda2.ru'
+    user_agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'
+    req = urllib.request.Request('http://pobeda2.ru', headers={'User-Agent':user_agent})
+    with urllib.request.urlopen(req) as response:
+       html = response.read().decode('utf-8')
+
+    return html
+
+def Second(html):
+
+    newarray=[]
+    regTitle =   re.compile('<h3 class="catItemTitle">.*?<a href=.*?>(.*?)</a>',flags=re.U | re.DOTALL)
+    array = regTitle.findall(html)
+    regTag = re.compile('<.*?>', flags=re.U | re.DOTALL)
+    regSpace = re.compile('\s{2,}', flags=re.U | re.DOTALL)
+    for a in array:
+        clean_a = regSpace.sub("", a)
+        clean_a = regTag.sub("", clean_a)
+        newarray.append(clean_a)
+    for a in array:
+        print(a.replace("&nbsp;&rarr;", " -> "))
+    
+def main():
+    a = First()
+    b = Second(a)
+if __name__== '__main__':
+    main()
