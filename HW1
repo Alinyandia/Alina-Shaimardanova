@@ -1,7 +1,7 @@
 import re
 import urllib.request
 
-def First():
+def first():
     url = 'http://pobeda2.ru'
     user_agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'
     req = urllib.request.Request('http://pobeda2.ru', headers={'User-Agent':user_agent})
@@ -10,10 +10,10 @@ def First():
 
     return html
 
-def Second(html):
+def second(html):
 
     newarray=[]
-    regTitle =   re.compile('<h3 class="catItemTitle">.*?<a href=.*?>(.*?)</a>',flags=re.U | re.DOTALL)
+    regTitle = re.compile('<h3 class="catItemTitle">.*?<a href=.*?>(.*?)</a>',flags=re.U | re.DOTALL)
     array = regTitle.findall(html)
     regTag = re.compile('<.*?>', flags=re.U | re.DOTALL)
     regSpace = re.compile('\s{2,}', flags=re.U | re.DOTALL)
@@ -25,7 +25,7 @@ def Second(html):
         print(a.replace("&nbsp;&rarr;", " -> "))
     
 def main():
-    a = First()
-    b = Second(a)
+    a = first()
+    b = second(a)
 if __name__== '__main__':
     main()
