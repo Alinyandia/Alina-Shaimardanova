@@ -19,6 +19,7 @@ def download_page(pageUrl, f):
         print ('Error at', pageUrl)
         return
     time.sleep(2)
+
 commonUrl = 'http://pobeda2.ru/component/k2/item/'
 for i in range (471, 4389):
     pageUrl = commonUrl + str(i)
