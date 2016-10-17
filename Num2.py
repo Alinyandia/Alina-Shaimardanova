@@ -8,7 +8,7 @@ os.system(r'/Users/alinashaymardanova/Desktop/Новая_папка/Num1.py')
 os.chdir('/Users/alinashaymardanova/Desktop/Новая_папка/газета_Победа')
 
 def work_with_text():
-    i = 142
+    i = 0
     f = open('pages.txt')
     for line in f:
         i+=1
