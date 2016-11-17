@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Анкета для полевых работ с информантами</title>
+</head>
+<body>
+
+<h1>Приветствуем Вас на сайте нашей анкеты! Просим Вас ответить на все вопросы этой анкеты. Спасибо!</h1>
+<h2>А здесь Вы можете посмотреть общую статистику:</h2>
+<ul>
+    {% for name, url in urls.items() %}
+    <li><a href="{{ url }}">{{ name }}</a></li>
+    {% endfor %}
+</ul>
+<p>Список вопросов на этом сайте:</p>
+<form action="thankyou" >
+    <img src="{{url_for('static', filename='1.jpg')}}" /><br>
+    <label> Какой это цвет?<input type="text" name="answer1"></label><br><br>
+    <img src="{{url_for('static', filename='2.jpg')}}" /><br>
+    <label> Какой это цвет? <input type="text" name="answer2"></label><br><br>
+    <img src="{{url_for('static', filename='3.jpg')}}" /><br>
+    <label> Какой это цвет? <input type="text" name="answer3"></label><br><br>
+    <img src="{{url_for('static', filename='4.jpg')}}" /><br>
+    <label> Какой это цвет? <input type="text" name="answer4"></label><br><br>
+    <img src="{{url_for('static', filename='5.jpg')}}" /><br>
+    <label> Какой это цвет? <input type="text" name="answer5"></label><br><br>
+    <img src="{{url_for('static', filename='6.jpg')}}" /><br>
+    <label> Какой это цвет? <input type="text" name="answer6"></label><br><br>
+<p>Обращаем Ваше внимание на то, что все поля должны быть заполнены!</p>
+    <input type="submit" value="Работа сделана!">
+
+</form>
+</body>
+</html>

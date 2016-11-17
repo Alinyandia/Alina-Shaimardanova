@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<title>Тут все результаты</title>
+</head>
+<body>
+<h1>Здесь собраны все результаты нашей анкеты:</h1>
+<ul>
+    {% for name, url in urls.items() %}
+    <li><a href="{{ url }}">{{ name }}</a></li>
+    {% endfor %}
+</ul>
+<img src="{{url_for('static', filename='1.jpg')}}" /><br>
+<ul>
+{% for e1 in ar1 %}
+  <li>{{ e1 }} {{ ar1[e1] }}</li>
+{% endfor %}
+</ul>
+<img src="{{url_for('static', filename='2.jpg')}}" /><br>
+<ul>
+{% for e2 in ar2 %}
+  <li>{{ e2 }} {{ ar2[e2] }}</li>
+{% endfor %}
+</ul>
+<img src="{{url_for('static', filename='3.jpg')}}" /><br>
+<ul>
+{% for e3 in ar3 %}
+  <li>{{ e3 }} {{ ar3[e3] }}</li>
+{% endfor %}
+</ul>
+<img src="{{url_for('static', filename='4.jpg')}}" /><br>
+<ul>
+{% for e4 in ar4 %}
+  <li>{{ e4 }} {{ ar4[e4] }}</li>
+{% endfor %}
+</ul>
+<img src="{{url_for('static', filename='5.jpg')}}" /><br>
+<ul>
+{% for e5 in ar5 %}
+  <li>{{ e5 }} {{ ar5[e5] }}</li>
+{% endfor %}
+</ul>
+<img src="{{url_for('static', filename='6.jpg')}}" /><br>
+<ul>
+{% for e6 in ar6 %}
+  <li>{{ e6 }} {{ ar6[e6] }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>

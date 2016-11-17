@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+<title>Опс, ошибка!</title>
+</head>
+<body>
+<h1>Опс, ошибка!</h1>
+<h2>Пожалуйста, заполните все поля анкеты:)</h2>
+<ul>
+    {% for name, url in urls.items() %}
+    <li><a href="{{ url }}">{{ name }}</a></li>
+    {% endfor %}
+</ul>
+ 
+</body>
+</html>
