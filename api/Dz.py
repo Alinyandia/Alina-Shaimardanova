@@ -239,13 +239,13 @@ def graph_age():
     plt.show()
 
 def main():
-#    a = posts()
-#    b = info(a)
-#    c = info_100(b)
-#    d = graph_len()
-#    e, f = users()
-#    g = for_city_gr(e)
-#    h = for_bd_gr(f)
+    a = posts()
+    b = info(a)
+    c = info_100(b)
+    d = graph_len()
+    e, f = users()
+    g = for_city_gr(e)
+    h = for_bd_gr(f)
     i = graph_city()
     g = graph_age()
 if __name__== '__main__':
