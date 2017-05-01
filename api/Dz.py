@@ -190,7 +190,7 @@ def for_bd_gr(bida):
         new.write(str(elem) + ' ' + str(math.floor(len_c/k)) + '\n')
     new.close()
    
-def graph_city():
+def graph_city(): #график город vs средняя длина комментов пользователей из этого города
     i = 0
     mem_c = []
     l_com = []
