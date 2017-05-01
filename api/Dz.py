@@ -235,6 +235,82 @@ def graph_age():
     plt.ylabel('Возраст автора')
     plt.grid('on')
     plt.show()
+    
+    
+def for_graph_city_sec(): #график для каждого города: возраст vs средняя длина комментов
+    city = {}
+    i = 0
+    b = 0
+    users = open('users_info.txt','r', encoding ='utf-8')
+    f = users.read()
+    for person in f.split():
+        i += 1
+        if i % 2 != 0:
+            link = 'https://api.vk.com/method/users.get?user_id=' + str(person) + '&fields=city,bdate'
+            response = requests.get(link)
+            data = json.loads(response.text)
+            for c in data['response']:
+                if 'city' in c:
+                    if c['city'] in city:
+                        if 'bdate' in c:
+                            year = re.search('([0-9]*?)\.([0-9]*?)\.([0-9]*)', c['bdate'])
+                            if year:
+                                today = date.today()
+                                age = today.year - int(year.group(3))
+                                if today.month < int(year.group(2)):
+                                    age -= 1
+                                elif today.month == int(year.group(3)) and today.day < int(year.group(1)):
+                                    age -= 1
+                                if age in city[c['city']]:
+                                    city[c['city']][age].append(f.split()[b+1])
+                                else:
+                                    city[c['city']][age] = list()
+                                    city[c['city']][age].append(f.split()[b+1])
+                                    b += 2
+                    else:
+                        city[c['city']] = dict()
+                        if 'bdate' in c:
+                            year = re.search('([0-9]*?)\.([0-9]*?)\.([0-9]*)', c['bdate'])
+                            if year:
+                                today = date.today()
+                                age = today.year - int(year.group(3))
+                                if today.month < int(year.group(2)):
+                                    age -= 1
+                                elif today.month == int(year.group(3)) and today.day < int(year.group(1)):
+                                    age -= 1
+                                if age in city[c['city']]:
+                                    city[c['city']][age].append(f.split()[b+1])
+                                else:
+                                    city[c['city']][age] = list()
+                                    city[c['city']][age].append(f.split()[b+1])
+                                    b += 2
+    return city1
+
+
+def graph_city_sec(city1):
+    for l in city1 :
+        mem_a = []
+        l_com = []
+        if city1[l]:
+            for year in city1[l]:
+                k = 0
+                age2 = 0 
+                for age1 in city1[l][year]:
+                    k += 1
+                    age2 = int(age2) + int(age1)
+                l_com.append(age2/k)
+                mem_a.append(year)
+            ag = [int(ple) for ple in mem_a]
+            comm = [int(cle) for cle in l_com]
+            fig = plt.figure()
+            plt.bar(comm, ag)
+            plt.xticks(comm, ag, rotation='vertical')
+            plt.title('id города' + ' ' + str(l))
+            plt.ylabel('Средняя длина комментариев к посту')
+            plt.xlabel('Возраст автора')
+            plt.grid('on')
+            plt.show()
+    
 
 def main():
     a = posts()
@@ -246,5 +322,7 @@ def main():
     h = for_bd_gr(f)
     i = graph_city()
     g = graph_age()
+    k = for_graph_city_sec()
+    l = graph_city_sec(k)
 if __name__== '__main__':
     main() 
