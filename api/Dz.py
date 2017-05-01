@@ -202,8 +202,7 @@ def graph_city():
                 mem_c.append(k)
             else:
                 l_com.append(k)
-    l_com.sort()
-    mem_c.sort()
+                
     city = [int(ple) for ple in mem_c]
     comm = [int(cle) for cle in l_com]
     plt.bar(comm, city)
@@ -226,8 +225,7 @@ def graph_age():
                 age_c.append(k)
             else:
                 l_com.append(k)
-    l_com.sort()
-    age_c.sort()
+                
     age = [int(ple) for ple in age_c]
     comm = [int(cle) for cle in l_com]
     plt.bar(comm, age)
