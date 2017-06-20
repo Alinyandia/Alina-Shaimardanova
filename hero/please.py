@@ -150,6 +150,9 @@ def graph(for_graph):
     plt.title("Ваш граф")
     #nx.draw_networkx_nodes(G, pos, node_color='green', node_size=10)
     #nx.draw_networkx_edges(G, pos, edge_color='yellow')
+    #plt.savefig('/home/alinyandiaa/mysite/__pycache__/1.png')
+    #plt.axis('off')
+    #plt.show()
     s = ''
     if G.number_of_nodes() == 0 :
         s = 'Кажется, кто-то тут жмотит свою стену для меня:) (и это вот этот человек, сообщением выше)'
