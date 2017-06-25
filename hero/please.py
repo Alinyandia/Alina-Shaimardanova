@@ -22,7 +22,7 @@ TOKEN = os.environ["TOKEN"]
 bot = telebot.TeleBot(TOKEN, threaded=False)
 
 bot.remove_webhook()
-bot.set_webhook(url="https://frozen-chamber-61908.herokuapp.com/bot")
+bot.set_webhook(url="https://fathomless-falls-37640.herokuapp.com/bot")
 
 app = flask.Flask(__name__)
 
